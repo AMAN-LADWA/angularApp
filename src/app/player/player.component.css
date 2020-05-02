@@ -3,15 +3,22 @@ body {
   }
   
   .col-sm-6 {
-    background: #ccc;
+    background: rgb(146, 237, 255);
   }
   
   .other {
-    background: #a4a4a4;
+    background: #f76a6a;
   }
   
   .p {
     text-align: center;
     padding-top: 120px;
   }
-  
+  table, th, td {
+    border: 1px solid #460000;
+  }
+  h3 {
+    color: #C0B283;
+    font-family: Garamond; 
+    text-align: center;
+  }

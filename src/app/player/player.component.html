@@ -1,49 +1,54 @@
 <div class="container">
+    <h3>Cricket Player Database Manager</h3>
     <div class="row">
-      <div class="col-sm-6">
-            <form #playerform="ngForm" >
-                    <input type="hidden" name="_id" name="_id" #_id="ngModel" [(ngModel)]="PlayerService.selectedPlayer._id">
+        <div class="col-sm-6">
+            <form #playerform="ngForm">
+                <input type="hidden" name="_id" name="_id" #_id="ngModel" [(ngModel)]="PlayerService.selectedPlayer._id">
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter name" #name="ngModel" [(ngModel)]="PlayerService.selectedPlayer.name" required>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter name" #name="ngModel"
+                        [(ngModel)]="PlayerService.selectedPlayer.name" required>
                 </div>
                 <div class="form-group">
                     <label for="joiningDate">joiningDate</label>
-                    <input type="text" class="form-control" id="joiningDate" name="joiningDate" placeholder="Enter joining Date" #joiningDate="ngModel" [(ngModel)]="PlayerService.selectedPlayer.joiningDate" required>
+                    <input type="text" class="form-control" id="joiningDate" name="joiningDate" placeholder="Enter joining Date"
+                        #joiningDate="ngModel" [(ngModel)]="PlayerService.selectedPlayer.joiningDate" required>
                 </div>
                 <div class="form-group">
                     <label for="birthDate">birthDate</label>
-                    <input type="text" class="form-control" id="birthDate" name="birthDate" placeholder="Enter name" #birthDate="ngModel" [(ngModel)]="PlayerService.selectedPlayer.birthDate" required>
+                    <input type="text" class="form-control" id="birthDate" name="birthDate" placeholder="Enter name"
+                        #birthDate="ngModel" [(ngModel)]="PlayerService.selectedPlayer.birthDate" required>
                 </div>
                 <div class="form-group">
                     <label for="score">score</label>
-                    <input type="text" class="form-control" id="score" name="score" placeholder="Enter name" #score="ngModel" [(ngModel)]="PlayerService.selectedPlayer.score" required>
+                    <input type="text" class="form-control" id="score" name="score" placeholder="Enter name" #score="ngModel"
+                        [(ngModel)]="PlayerService.selectedPlayer.score" required>
                 </div>
                 <div>
                     <button type="reset" (click)="resetForm(playerform)">Reset</button>
                     <button type="submit" (click)="onSubmit(playerform)">Submit</button>
                 </div>
             </form>
-      </div>
-      <div class="col-sm-6 other">
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Join Date</th>
-                    <th>Birth date</th>
-                    <th>Score</th>
-                    <th></th>
+        </div>
+        <div class="col-sm-6 other">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name-</th>
+                        <th>Join Date-</th>
+                        <th>Birth date-</th>
+                        <th>Score</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tr *ngFor="let ply of PlayerService.players">
+                    <td>{{ply.name}}-</td>
+                    <td>{{ply.joiningDate}}-</td>
+                    <td>{{ply.birthDate}}-</td>
+                    <td>{{ply.score}}</td>
+                    <td><button><a (click)="onEdit(ply)">edit</a></button><button><a (click)="onDelete(ply)">delete</a></button></td>
                 </tr>
-            </thead>
-            <tr *ngFor="let ply of PlayerService.players">
-                <td>{{ply.name}}</td>
-                <td>{{ply.joiningDate}}</td>
-                <td>{{ply.birthDate}}</td>
-                <td>{{ply.score}}</td>
-                <td><button><a (click)="onEdit(ply)">edit</a></button><button><a href="">delete</a></button></td>
-            </tr>
-        </table>
-      </div>
+            </table>
+        </div>
     </div>
 </div>

@@ -20,6 +20,9 @@ export class PlayerService {
     return this.http.get(this.baseURL);
   }
   putPlayer(ply:Player){
-    return this.http.put(this.baseURL+'/$(ply._id)',ply);
+    return this.http.put(this.baseURL+'/'+ply._id,ply);
+  }
+  deletePlayer(ply:Player){
+    return this.http.delete(this.baseURL+'/'+ply._id);
   }
 }
